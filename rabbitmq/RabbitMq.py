@@ -1,8 +1,10 @@
+from typing import Dict
 import pika
+import json
 from pika.spec import Exchange
 
 class RabbitMqConfig:
-    def __init__(self,queue:str ="flask" ,host:str ="localhost",routing_key:str ="flask") -> None:
+    def __init__(self,queue:str ="sys" ,host:str ="localhost",routing_key:str ="sys") -> None:
         self.queue = queue
         self.host = host
         self.routing_key = routing_key
@@ -14,13 +16,16 @@ class ServerMq:
         self.channel = self.connection.channel()
         self.channel.queue_declare(queue=self.config.queue)
 
-    def publish(self,message:str):
+    def publish(self,objectbody: Dict):
         self.channel.basic_publish(exchange='',
             routing_key = self.config.routing_key,
-            body = message)
+            body = json.dumps(objectbody))
         print(f"Message Sent to RabbitMq with routing key {self.config.routing_key}")
         #self.connection.close()
         #print("Connection Closed")
+    
+    def __del__(self):
+        self.connection.close()
 
 class ReceiveMq:
     def __init__(self,config: RabbitMqConfig) -> None:
