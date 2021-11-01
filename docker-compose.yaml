@@ -1,13 +1,13 @@
 version: "3"
 services:
     influxdb:
-        image: influxdb:latest
+        image: influxdb:1.8
         container_name: influxdb
         restart: always
         ports:
-            - 8086:8086
+            - '8086:8086'
         volumes:
-            - influxdb_data:/var/lib/influxdb
+            - ./influxdb_data:/var/lib/influxdb
         environment:
             - INFLUXDB_DB=stream
             - INFLUXDB_USER=chuck
