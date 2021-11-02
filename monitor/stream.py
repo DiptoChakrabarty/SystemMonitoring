@@ -11,11 +11,15 @@ def get_system_data():
 
     statistics['physical_and_logical_cpu_count'] = psutil.cpu_count(logical=True)
 
-    statistics['cpu_frequency'] = cpu_freq
+    statistics['cpu_frequency'] = cpu_freq.current
 
-    statistics['virtual_memory'] = memory
+    statistics['memory_available'] = memory.available
 
-    statistics['internet_speed'] = net_speed
+    statistics['memory_used'] = memory.used
+
+    statistics['memory_free'] = memory.free
+
+    #statistics['internet_speed'] = net_speed
 
     statistics['total_memory'] = (int(memory.total)) / (1024 * 1024 * 1024)
 

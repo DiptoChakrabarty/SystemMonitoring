@@ -52,11 +52,13 @@ class ReceiveMq:
         dbdata = [
             {
                 "measurement": "status",
-                "time": datetime.now().isoformat(),
+                "time": datetime.now(datetime.timezone.utc),
                 "fields": objectbody,
                 "tags": {
                     "monitor": "system"
                 }
             }
         ]
+        print(datetime.now(datetime.timezone.utc))
         DatabaseConfig.write_points(dbdata)
+        print("Data Written to InfluxDB")
