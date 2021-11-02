@@ -19,7 +19,7 @@ class ServerMq:
         self.channel = self.connection.channel()
         self.channel.queue_declare(queue=self.config.queue)
 
-    def publish(self,objectbody: Dict):
+    def publish(self,objectbody):
         self.channel.basic_publish(exchange='',
             routing_key = self.config.routing_key,
             body = json.dumps(objectbody))
@@ -39,7 +39,7 @@ class ReceiveMq:
         self.channel = self.connection.channel()
         self.channel.queue_declare(queue=self.config.queue)
     
-    def consume(self,function: str):
+    def consume(self):
         self.channel.basic_consume(queue=self.config.routing_key,
         on_message_callback=self.callback,
         auto_ack = True)

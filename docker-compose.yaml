@@ -15,6 +15,8 @@ services:
             - INFLUXDB_ADMIN_ENABLED=true
             - INFLUXDB_ADMIN_USER=admin
             - INFLUXDB_ADMIN_PASSWORD=toor
+        networks:
+            - microservice
     rabbitmq:
         image: rabbitmq:3-management-alpine
         container_name: rabbitmq
@@ -25,6 +27,8 @@ services:
             - '15672:15672'
         volumes:
             - ./rabbitmq_data:/var/lib/rabbitmq
+        networks:
+            - microservice
     grafana:
         image: grafana/grafana
         container_name: grafana
@@ -35,7 +39,14 @@ services:
             - ./grafana_data:/var/lib/grafana
         depends_on:
             - influxdb
+        environment:
+            - GF_SECURITY_ADMIN_USER=grafana
+            - GF_SECURITY_ADMIN_PASSWORD=grafana
+        networks:
+            - microservice
 volumes:
     influxdb_data:
     grafana_data:
     rabbitmq_data:
+networks:
+    microservice:
