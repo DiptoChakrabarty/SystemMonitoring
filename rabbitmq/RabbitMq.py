@@ -1,7 +1,10 @@
+
+from datetime import datetime
 from typing import Dict
 import pika
 import json
 from pika.spec import Exchange
+from database.config import DatabaseConfig
 
 class RabbitMqConfig:
     def __init__(self,queue:str ="sys" ,host:str ="localhost",routing_key:str ="sys") -> None:
@@ -38,12 +41,22 @@ class ReceiveMq:
     
     def consume(self,function: str):
         self.channel.basic_consume(queue=self.config.routing_key,
-        on_message_callback=function,
+        on_message_callback=self.callback,
         auto_ack = True)
         print("Waiting for messages\n")
         self.channel.start_consuming()
 
     @staticmethod
     def callback(ch,method,properties,body):
-        print("Message Received",body)
-        return body
+        objectbody = json.loads(body)
+        dbdata = [
+            {
+                "measurement": "status",
+                "time": datetime.now().isoformat(),
+                "fields": objectbody,
+                "tags": {
+                    "monitor": "system"
+                }
+            }
+        ]
+        DatabaseConfig.write_points(dbdata)

@@ -1,7 +1,7 @@
 import time
 import logging
 
-from rabbitmq.RabbitMq import RabbitMqConfig,ServerMq,ReceiveMq
+from rabbitmq.RabbitMq import RabbitMqConfig,ServerMq
 from stream import get_system_data
 
 logger = logging.getLogger(__name__)
