@@ -31,8 +31,3 @@ def get_system_data():
 
 
     return statistics
-
-
-
-
-

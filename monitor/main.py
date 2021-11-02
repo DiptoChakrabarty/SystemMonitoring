@@ -24,5 +24,3 @@ while True:
         logger.info("Data Transmitted , sleeping for two seconds")
     except Exception as e:
         logger.error(f"Unable to transmit data : {e}")
-        
-

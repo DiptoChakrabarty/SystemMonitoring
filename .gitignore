@@ -132,3 +132,4 @@ dmypy.json
 # directories
 influxdb_data
 grafana_data
+rabbitmq_data

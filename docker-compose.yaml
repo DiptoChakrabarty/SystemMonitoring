@@ -15,6 +15,16 @@ services:
             - INFLUXDB_ADMIN_ENABLED=true
             - INFLUXDB_ADMIN_USER=admin
             - INFLUXDB_ADMIN_PASSWORD=toor
+    rabbitmq:
+        image: rabbitmq:3-management-alpine
+        container_name: rabbitmq
+        restart: always
+        ports:
+            - '5672:5672'
+            - '8081:15692'
+            - '15672:15672'
+        volumes:
+            - ./rabbitmq_data:/var/lib/rabbitmq
     grafana:
         image: grafana/grafana
         container_name: grafana
@@ -28,3 +38,4 @@ services:
 volumes:
     influxdb_data:
     grafana_data:
+    rabbitmq_data:
