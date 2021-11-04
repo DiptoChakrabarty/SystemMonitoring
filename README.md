@@ -49,4 +49,4 @@
   ![MesgView](https://github.com/SystemMontoring/blob/main/images/message.png)
 
 - Grafana DashBoard View
-  ![DashBoard View](https://github.com/SystemMontoring/blob/main/images/dashboard.png)
+  ![DashBoard View](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/dashboard.png)
