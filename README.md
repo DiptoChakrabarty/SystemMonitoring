@@ -26,7 +26,27 @@
    pip3 install -r requirements.txt
 - Start the containers using the docker compose file
    sudo docker-compose up -d
+- Add influxdb as a datasource in grafana
 - Start the server and client scripts seperately
    python3 server.py
    python3 client.py
+- Setup grafana dashboards
 ```
+
+## Images to Get you started
+
+- Start docker compose and server client
+
+  ![Docker Setup](https://github.com/SystemMontoring/blob/main/images/docker.png)
+
+- Run all scripts
+   ![Scripts](https://github.com/SystemMontoring/blob/main/images/setup.png)
+
+- RabbitMq Queue Setup which happens through code
+   ![Rabbitmq Queue](https://github.com/SystemMontoring/blob/main/images/queue.png)
+
+- RabbitMq Message Viewing
+  ![MesgView](https://github.com/SystemMontoring/blob/main/images/message.png)
+
+- Grafana DashBoard View
+  ![DashBoard View](https://github.com/SystemMontoring/blob/main/images/dashboard.png)
