@@ -1,5 +1,7 @@
 # SystemMonitoringRabbitMQGrafanaInflux
 
+![DashBoard View](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/grafana.png)
+
 - This repository has code to setup a system monitoring tool
 - The tools used are the follows
     * Python3.6
