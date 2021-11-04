@@ -37,16 +37,16 @@
 
 - Start docker compose and server client
 
-  ![Docker Setup](https://github.com/SystemMontoring/blob/main/images/docker.png)
+  ![Docker Setup](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/docker.png)
 
 - Run all scripts
-   ![Scripts](https://github.com/SystemMontoring/blob/main/images/setup.png)
+   ![Scripts](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/setup.png)
 
 - RabbitMq Queue Setup which happens through code
-   ![Rabbitmq Queue](https://github.com/SystemMontoring/blob/main/images/queue.png)
+   ![Rabbitmq Queue](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/queue.png)
 
 - RabbitMq Message Viewing
-  ![MesgView](https://github.com/SystemMontoring/blob/main/images/message.png)
+  ![MesgView](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/message.png)
 
 - Grafana DashBoard View
   ![DashBoard View](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/dashboard.png)
