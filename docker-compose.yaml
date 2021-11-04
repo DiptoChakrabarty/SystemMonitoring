@@ -30,7 +30,7 @@ services:
         networks:
             - microservice
     grafana:
-        image: grafana/grafana
+        image: grafana/grafana:7.0.6-ubuntu
         container_name: grafana
         restart: always
         ports:

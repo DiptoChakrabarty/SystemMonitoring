@@ -9,29 +9,29 @@ def get_system_data():
     net_speed = psutil.net_io_counters()
     _, _, free = shutil.disk_usage("/")
 
-    statistics['physical_and_logical_cpu_count'] = psutil.cpu_count(logical=True)
+    statistics['physicallogicalcpucount'] = psutil.cpu_count(logical=True)
 
-    statistics['cpu_frequency'] = cpu_freq.current
+    statistics['cpufrequency'] = cpu_freq.current
 
-    statistics['memory_available'] = memory.available
+    statistics['memoryavailable'] = memory.available
 
-    statistics['memory_used'] = memory.used
+    statistics['memoryused'] = memory.used
 
-    statistics['memory_free'] = memory.free
+    statistics['memoryfree'] = memory.free
 
     #statistics['internet_speed'] = net_speed
 
-    statistics['total_memory'] = (int(memory.total)) / (1024 * 1024 * 1024)
+    statistics['totalmemory'] = (int(memory.total)) / (1024 * 1024 * 1024)
 
-    statistics['cpu_usage'] = psutil.cpu_percent()
+    statistics['cpuusage'] = psutil.cpu_percent()
 
-    statistics["ram_used"] = memory.used
+    statistics["ramused"] = memory.used
 
-    statistics["data_sent"] = net_speed.bytes_sent
+    statistics["datasent"] = net_speed.bytes_sent
 
-    statistics["data_received"] = net_speed.bytes_recv
+    statistics["datareceived"] = net_speed.bytes_recv
 
-    statistics["free_disk"] = free
+    statistics["freedisk"] = free
 
 
     return statistics

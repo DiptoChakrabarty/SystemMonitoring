@@ -1,5 +1,6 @@
 
 from datetime import datetime
+from datetime import timezone
 from typing import Dict
 import pika
 import json
@@ -49,16 +50,19 @@ class ReceiveMq:
     @staticmethod
     def callback(ch,method,properties,body):
         objectbody = json.loads(body)
+        #dt = datetime.now(timezone.utc)
+        #utc_time = dt.replace(tzinfo=timezone.utc)
         dbdata = [
             {
                 "measurement": "status",
-                "time": datetime.now(datetime.timezone.utc),
+                "time": datetime.now().isoformat(),
                 "fields": objectbody,
                 "tags": {
                     "monitor": "system"
                 }
             }
         ]
-        print(datetime.now(datetime.timezone.utc))
+        #print(datetime.now(),utc_time.timestamp())
+        print(datetime.now().isoformat())
         DatabaseConfig.write_points(dbdata)
         print("Data Written to InfluxDB")
