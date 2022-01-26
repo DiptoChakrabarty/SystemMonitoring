@@ -2,6 +2,9 @@
 
 ![DashBoard View](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/grafana.png)
 
+## About
+A System Metrics Monitoring Tool Built using Python3 , rabbitmq,Grafana and InfluxDB. Setup using docker compose. Use to monitor system performance with graphical interface of grafana , storage of influxdb and message queuing of rabbitmq
+
 - This repository has code to setup a system monitoring tool
 - The tools used are the follows
     * Python3.6
@@ -50,5 +53,5 @@
 - RabbitMq Message Viewing
   ![MesgView](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/message.png)
 
-- Grafana DashBoard View
+- Grafana DashBoard View showing stats like cpu and ram usage , network bandwidth , storage unallocated
   ![DashBoard View](https://github.com/DiptoChakrabarty/SystemMonitoring/blob/main/images/dashboard.png)
